@@ -1,0 +1,26 @@
+
+<button (click)="reload()">Refresh</button>
+<div class="main"  >
+<div class="card" *ngFor="let data of title_data | 
+paginate: {
+   itemsPerPage: 10,
+   currentPage: page,
+    totalItems:totLen 
+  }; let i = index ">
+<div class="image" >
+   <img src="https://ui-avatars.com/api/?name={{data.title}}&rounded=true&size=150&background=random&bold=true">
+</div>
+<div class="title" >
+ <h1>
+{{data.title}}</h1>
+</div>
+<div class="des">
+ <p>{{data.description | slice:0:40}}....</p>
+<button>Full description</button>
+</div>
+</div>
+<pagination-controls (pageChange)="onDataChange($event)"></pagination-controls>
+
+
+
+
